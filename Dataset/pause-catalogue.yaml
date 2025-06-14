@@ -1,0 +1,14 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pause-catalogue
+  namespace: chaos-testing
+spec:
+  action: pod-failure
+  mode: one
+  selector:
+    namespaces:
+      - sock-shop
+    labelSelectors:
+      name: catalogue
+  duration: "5m"
